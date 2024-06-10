@@ -1,5 +1,13 @@
 #include <sourcemod>
 
+#include "player-crush/api"
+
+#include "modules/console-variable.sp"
+#include "modules/event.sp"
+#include "modules/use-case.sp"
+
+#define AUTO_CREATE_YES true
+
 public Plugin myinfo = {
     name = "Bonus round crush",
     author = "Dron-elektron",
@@ -7,3 +15,9 @@ public Plugin myinfo = {
     version = "0.1.0",
     url = "https://github.com/dronelektron/bonus-round-crush"
 };
+
+public void OnPluginStart() {
+    Variable_Create();
+    Event_Create();
+    AutoExecConfig(AUTO_CREATE_YES, "bonus-round-crush");
+}
