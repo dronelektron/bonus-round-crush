@@ -2,6 +2,8 @@
 
 #include "player-crush/api"
 
+#include "bonus-round-crush/use-case"
+
 #include "modules/console-variable.sp"
 #include "modules/event.sp"
 #include "modules/use-case.sp"
@@ -12,7 +14,7 @@ public Plugin myinfo = {
     name = "Bonus round crush",
     author = "Dron-elektron",
     description = "Allows you to crush players at the end of the round",
-    version = "0.1.0",
+    version = "0.2.0",
     url = "https://github.com/dronelektron/bonus-round-crush"
 };
 

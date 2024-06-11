@@ -15,3 +15,14 @@ Allows you to crush players at the end of the round
 
 * Download latest [release](https://github.com/dronelektron/bonus-round-crush/releases)
 * Extract `plugins` folder to `addons/sourcemod` folder of your server
+
+### Console Variables
+
+* sm_bonusroundcrush_mode - Who can crush the players [default: "3"]
+
+### Mode
+
+* Disabled - 0
+* Winners - 1
+* Losers - 2
+* Both - 3
