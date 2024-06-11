@@ -1,9 +1,9 @@
-static ConVar g_pluginEnabled;
+static ConVar g_mode;
 
 void Variable_Create() {
-    g_pluginEnabled = CreateConVar("sm_bonusroundcrush_enable", "1", "Enable (1) or disable (0) plugin");
+    g_mode = CreateConVar("sm_bonusroundcrush_mode", "3", "Who can crush the players (Disabled - 0, Winners - 1, Losers - 2, Both - 3)");
 }
 
-bool Variable_PluginEnabled() {
-    return g_pluginEnabled.IntValue == 1;
+int Variable_Mode() {
+    return g_mode.IntValue;
 }

@@ -2,6 +2,8 @@
 
 #include "player-crush/api"
 
+#include "bonus-round-crush/use-case"
+
 #include "modules/console-variable.sp"
 #include "modules/event.sp"
 #include "modules/use-case.sp"

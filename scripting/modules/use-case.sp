@@ -1,5 +1,5 @@
 void UseCase_EnablePlayerCrush(int winTeam) {
-    if (!Variable_PluginEnabled()) {
+    if (Variable_Mode() == MODE_DISABLED) {
         return;
     }
 
@@ -12,9 +12,17 @@ void UseCase_EnablePlayerCrush(int winTeam) {
 
 static void UseCase_EnableCrush(int client, int winTeam) {
     int clientTeam = GetClientTeam(client);
-    bool isWinner = clientTeam == winTeam;
 
-    if (isWinner) {
+    if (clientTeam <= TEAM_SPECTATOR) {
+        return;
+    }
+
+    int mode = Variable_Mode();
+    bool isBothMode = mode == MODE_BOTH;
+    bool isWinnersMode = mode == MODE_WINNERS && clientTeam == winTeam;
+    bool isLosersMode = mode == MODE_LOSERS && clientTeam != winTeam;
+
+    if (isBothMode || isWinnersMode || isLosersMode) {
         PlayerCrush_Enable(client);
     }
 }
