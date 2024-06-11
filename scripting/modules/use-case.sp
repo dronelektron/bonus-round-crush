@@ -5,12 +5,12 @@ void UseCase_EnablePlayerCrush(int winTeam) {
 
     for (int client = 1; client <= MaxClients; client++) {
         if (IsClientInGame(client)) {
-            UseCase_EnableCrush(client, winTeam);
+            EnablePlayerCrush(client, winTeam);
         }
     }
 }
 
-static void UseCase_EnableCrush(int client, int winTeam) {
+static void EnablePlayerCrush(int client, int winTeam) {
     int clientTeam = GetClientTeam(client);
 
     if (clientTeam <= TEAM_SPECTATOR) {
