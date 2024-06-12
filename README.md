@@ -9,6 +9,7 @@ Allows you to crush players at the end of the round
 ### Requirements
 
 * [SourceMod](https://www.sourcemod.net) 1.11 or later
+* [bonus-round-events](https://github.com/dronelektron/bonus-round-events)
 * [player-crush](https://github.com/dronelektron/player-crush)
 
 ### Installation

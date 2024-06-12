@@ -1,11 +1,11 @@
 #include <sourcemod>
 
+#include "bonus-round-events/api"
 #include "player-crush/api"
 
 #include "bonus-round-crush/use-case"
 
 #include "modules/console-variable.sp"
-#include "modules/event.sp"
 #include "modules/use-case.sp"
 
 #define AUTO_CREATE_YES true
@@ -20,6 +20,25 @@ public Plugin myinfo = {
 
 public void OnPluginStart() {
     Variable_Create();
-    Event_Create();
     AutoExecConfig(AUTO_CREATE_YES, "bonus-round-crush");
+}
+
+public void BonusRound_OnReset(int client) {
+    PlayerCrush_Disable(client);
+}
+
+public void BonusRound_OnLoser(int client) {
+    if (UseCase_IsLosersMode()) {
+        PlayerCrush_Enable(client);
+    }
+}
+
+public void BonusRound_OnWinner(int client) {
+    if (UseCase_IsWinnersMode()) {
+        PlayerCrush_Enable(client);
+    }
+}
+
+public void BonusRound_OnSpectator(int client) {
+    PlayerCrush_Disable(client);
 }
