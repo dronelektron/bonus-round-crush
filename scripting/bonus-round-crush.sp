@@ -30,12 +30,16 @@ public void BonusRound_OnReset(int client) {
 public void BonusRound_OnLoser(int client) {
     if (UseCase_IsLosersMode()) {
         PlayerCrush_Enable(client);
+    } else {
+        PlayerCrush_Disable(client);
     }
 }
 
 public void BonusRound_OnWinner(int client) {
     if (UseCase_IsWinnersMode()) {
         PlayerCrush_Enable(client);
+    } else {
+        PlayerCrush_Disable(client);
     }
 }
 
